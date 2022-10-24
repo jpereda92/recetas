@@ -1,0 +1,19 @@
+extends ../head 
+
+block content
+  .cuadro
+    .header-card
+      h1 Adicionar nuevo usuario
+    section.body
+      form(action="", method="post") 
+        input#user.largo(type=text, name="user" placeholder="Usuario" required)
+        input#password.largo(name="password" type="password" placeholder="Contraseña" required)
+        input#name.largo(type=text, name="name" placeholder="Nombre" required)
+        input#lastname.largo(type=text, name="lastname" placeholder="Apellidos" )
+        input#email.largo(type=email, name="email" placeholder="correo" required)
+        input#phone.largo(type=phone , name="phone" placeholder="Telefono" )
+        select.largo(name="rol")
+           each rol in ["Administrador", "Editor", "Usuario"]
+              option(value=rol)= rol 
+        
+        button.action(type="submit") Adicionar

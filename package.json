@@ -1,0 +1,32 @@
+{
+  "name": "recetas",
+  "version": "1.0.0",
+  "description": "Proyecto recetas para crear tu propia lista de recetas y compartirla con tus amigos",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./bin/www"
+  },
+  "keywords": [
+    "recetas",
+    "dulces"
+  ],
+  "author": "javier pereda",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.0",
+    "bootstrap": "^5.2.2",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.1",
+    "express-myconnection": "^1.0.4",
+    "express-session": "^1.17.3",
+    "font-awesome": "^4.7.0",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.20",
+    "pug": "^3.0.2",
+    "sequelize": "^6.25.0"
+  }
+}

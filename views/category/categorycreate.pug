@@ -1,0 +1,11 @@
+extends ../head 
+
+block content
+  .cuadro
+    .header-card
+      h1 Adicionar nueva categoría
+    section.body
+      form(action="", method="post") 
+        input#nombre.largo(type=text, name="nombre" placeholder="Nombre la categoria")
+        textarea#decripcion.largo(name="descripcion" placeholder="Descripción la categoria" cols="30" rows="10")
+        button.action(type="submit") Adicionar

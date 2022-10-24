@@ -1,0 +1,125 @@
+body{
+
+    margin: 0;
+    font-family:  Verdana,sans-serif;
+    background: url('/img/bg.png');
+    background-repeat: repeat;
+    min-height: 100vh; 
+}
+
+
+ul.navbar, footer {
+    list-style-type: none;
+    margin: 0;
+    padding: 15px;
+    background-color: #c999af;
+    color: white;
+  }
+  footer{
+ width: 100vw;   
+
+ bottom: 0px;
+ left: 0px;
+  }
+
+  footer p{
+    text-align: center;
+    margin-bottom: 0;
+  }
+  .header-card{
+    background-color: #c999af;
+    color: white;
+  }
+  ul.navbar>li {
+   
+    display: inline-block;
+  }
+
+  ul.navbar li a{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 18px;
+    font-family:  Verdana,sans-serif;
+    padding: 15px;
+
+  }
+  a:hover{
+    background-color: #e3b1c8;
+    outline-width: 0!important;
+  }
+  .cuadro{
+    width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    margin-bottom: 70px;
+   margin-top: 30px;
+    background-color: #ffffff;
+    border: 2px solid #c999af ;
+  }
+  .cuadro .body{
+    padding: 15px;
+  }
+  .cuadro h1{
+    size: 14px;
+    color: #ffffff;
+    margin: 0px;
+    padding: 20px 10px;
+  }
+ 
+  .largo{
+    width: 100% ;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #c999af ;
+    box-shadow: none;
+    outline: none;
+  }
+  .btn-action{
+    color: #c999af;
+    border: 2px solid #c999af;
+    size: 14px;
+    margin-right: 5px;
+    background-color: #ffffff;
+    padding: 2px 4px;
+    border-radius: 4px;
+  }
+  .btn-action:hover{
+    color: #ffffff;
+    background-color: #c999af;
+  }
+  .body>.action>.btn-action{
+    size: 18px;
+    padding: 5px 8px;
+    margin-bottom: 15px;
+    display: inline-block;
+  }
+  .action{
+    border-radius: 5px;
+    background-color: #c999af;
+    width: 100%;
+    size: 14px;
+    font-family:  Verdana,sans-serif;
+    color: #ffffff;
+    font-weight: 600;
+    border-color:  #ffffff;
+    padding: 5px;
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+  }
+  .action:hover{
+    background-color:#e3b1c8;
+  }
+  /* {
+    #fdcae1
+    #ffe5f0
+    #ffffff
+  } */
+
+  main.principalblock{
+    margin-top: 10px;
+    margin-left: 25px;
+  }

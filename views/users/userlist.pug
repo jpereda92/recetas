@@ -1,0 +1,33 @@
+extends ../head 
+
+block content
+    main
+        .cuadro 
+            .header-card
+                h1 Listado de usuarios
+                
+            section.body
+                div
+                    a.btn-action(href="/user/create"): i.glyphicon.glyphicon-plus
+                table.table
+                    thead
+                        tr
+                            th No.
+                            th Usuario
+                            th Rol
+                            th.text-center Herramientas 
+                    tbody
+                        each usuario, i in listausuario
+                            tr
+                                td= i+1
+                                td= usuario.user
+                                td= usuario.rol
+                                td.text-center  
+                                    a.btn-action(href="/user/edit/" + usuario.id): i.glyphicon.glyphicon-pencil
+                                    a.btn-action(href="/user/delete/" + usuario.id): i.glyphicon.glyphicon-trash
+                        else
+                            tr
+                                td
+                                    p No existe ningun ususario
+          
+                

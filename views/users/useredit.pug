@@ -1,0 +1,22 @@
+extends ../head 
+
+block content
+ 
+ .cuadro
+    .header-card
+      h1 Actualizar  usario
+    each users in user
+      section.body
+        form(action="", method="post") 
+          input#user.largo(type=text, name="user" placeholder="Usuario"  value=users.user required)
+          input#name.largo(type=text, name="name" placeholder="Nombre" value=users.name required)
+          input#lastname.largo(type=text, name="lastname" placeholder="Apellidos" value=users.lastname)
+          input#email.largo(type=email, name="email" placeholder="correo" value=users.email required)
+          input#phone.largo(type=phone , name="phone" placeholder="Telefono" value=users.phone)
+          select.largo(name="rol" value=users.rol)
+            each rol in ["Administrador", "Editor", "Usuario"]
+              if rol===users.rol
+                option(value=rol  selected)= rol 
+              else 
+                option(value=rol)= rol 
+          button.action(type="submit") Actualizar

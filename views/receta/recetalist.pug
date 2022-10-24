@@ -1,0 +1,28 @@
+extends ../head 
+
+block content
+    main
+        .cuadro 
+            .header-card
+                h1 Listado de #{title} 
+            section.body
+                div
+                    a.btn-action(href="/receta/create"): i.glyphicon.glyphicon-plus
+                table.table
+                    thead
+                        tr
+                            th No.
+                            th Receta
+                            th Categoria
+                            th.text-center Herramientas 
+                    tbody
+                        each receta, i in listarecetas
+                            tr
+                                td= i+1
+                                td= receta.nombre
+                                td= receta.categorium.nombre
+                                td.text-center  
+                                    a.btn-action(href="/receta/edit/" + receta.id): i.glyphicon.glyphicon-pencil
+                                    a.btn-action(href="/receta/delete/" + receta.id): i.glyphicon.glyphicon-trash
+          
+                

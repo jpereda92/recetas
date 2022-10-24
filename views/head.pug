@@ -1,0 +1,34 @@
+doctype
+html(lang='es')
+    head
+        title= title 
+        meta(charset="UTF-8")
+        meta
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel='stylesheet' href='/component/bootstrap/dist/css/bootstrap.css')
+        link(href='/css/style.css', rel="stylesheet")
+    body 
+        header 
+            nav 
+                ul.navbar
+                    li: a(href="/"): img.col-lg-6(src="/img/logo.png", alt="logoproyecto")
+                    if(rol)
+                        li: a(href="/receta") Recetas
+                    if(rol ==="Administrador" || rol =="Editor")    
+                        li: a(href="/category") Catergoria 
+                    if(rol ==="Administrador" ) 
+                        li: a(href="/user") Usuario
+                    if nombre
+                        li.pull-right.dropdown
+                            a#dropdownMenuLink.dropdown-toggle(href="#" role="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") Bienvenido(a) #{nombre}
+                            ul.dropdown-menu.header-card(aria-labelledby="dropdownMenuLink")
+                                li.dropdown-item
+                                    a(href="http://") Cambiar Contraseña
+                                li.dropdown-item 
+                                    a(href="/logout") Cerrar Sesión
+        block content
+        footer
+            p Copyright &copy; 2022
+        script(src='/component/jquery/dist/jquery.js')  
+        script(src='/component/bootstrap/dist/js/bootstrap.js')
+        block scriptes

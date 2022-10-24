@@ -1,0 +1,19 @@
+extends ../head 
+block content
+  .cuadro
+    .header-card
+      h1= title
+    section.body
+      form(action="", method="post"  enctype="multipart/form-data") 
+        input#nombre.largo(type=text, name="nombre" placeholder="Nombre la categoria")
+        textarea#decripcion.largo(name="descripcion" placeholder="Descripción la categoria" cols="30" rows="10")
+        .input-group
+          img#imagenes.col-lg-6(name="filename" src="" type="text")
+          input#image(type="file" name="image"  data-url="/public/img" accept="image/*" )
+        select.largo(name="categoria")
+          each category in listacategoria
+            option(value=category.id)= category.nombre
+        button.action(type="submit") Adicionar
+block scriptes
+   script(src='/js/script.js')
+    

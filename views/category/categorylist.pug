@@ -1,0 +1,28 @@
+extends ../head 
+
+block content
+    main
+        .cuadro 
+            .header-card
+                h1 Listado de #{title} 
+            section.body
+                div
+                    a.btn-action(href="/category/create"): i.glyphicon.glyphicon-plus
+                table.table
+                    thead
+                        tr
+                            th No.
+                            th Categoria
+                            th Descripción
+                            th.text-center Herramientas 
+                    tbody
+                        each category, i in listacategoria
+                            tr
+                                td= i+1
+                                td= category.nombre
+                                td= category.descripcion
+                                td.text-center  
+                                    a.btn-action(href="/category/edit/" + category.id_categoria): i.glyphicon.glyphicon-pencil
+                                    a.btn-action(href="/category/delete/" + category.id_categoria): i.glyphicon.glyphicon-trash
+          
+                
