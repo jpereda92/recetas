@@ -2,7 +2,7 @@ extends ../head
 
 block content
     main
-        .cuadro 
+        .cuadro.ancho-largo 
             .header-card
                 h1 Listado de #{title} 
             section.body
@@ -23,6 +23,6 @@ block content
                                 td= receta.categorium.nombre
                                 td.text-center  
                                     a.btn-action(href="/receta/edit/" + receta.id): i.glyphicon.glyphicon-pencil
-                                    a.btn-action(href="/receta/delete/" + receta.id): i.glyphicon.glyphicon-trash
-          
-                
+                                    a.btn-action(onclick="confirmarreceta("+receta.id+")"): i.glyphicon.glyphicon-trash
+block scriptes
+   script(src='/js/script.js')

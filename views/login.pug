@@ -7,11 +7,12 @@ html(lang='es')
         link(rel='stylesheet' href='/component/bootstrap/dist/css/bootstrap.css')
         link(href='/css/style.css', rel="stylesheet")
     body
-        .cuadro
-            .header-card:  h1 Autenticación
-            section.body
-                form(action="", method="post") 
-                    input#user.largo(type=text, name="user" placeholder="Usuario" required)
-                    input#pasword.largo(name="contrasena" placeholder="Contraseña" type="password" required)
-                    button.action(type="submit") Entrar
-                //- a.action(href="register") Registrar
+        .col-lg-offset-4.col-lg-4
+            .cuadro
+                .header-card:  h1 Autenticación
+                section.body
+                    form(action="", method="post") 
+                        input#user.largo(type=text, name="user" placeholder="Usuario" required)
+                        input#pasword.largo(name="contrasena" placeholder="Contraseña" type="password" required)
+                        button.action(type="submit") Entrar
+                    //- a.action(href="register") Registrar

@@ -1,5 +1,6 @@
 
 const express = require('express');
+const fileUpload = require('express-fileupload');
 const path = require('path');
 //const cookieParser = require('cookie-parser');
 const myconnection = require('express-myconnection');
@@ -23,7 +24,7 @@ const recetaRoute = require('./routes/receta');
 const loginRoute = require('./routes/login'); 
 
 const app = express();
-
+app.use(fileUpload());
 app.use(express.static(__dirname + '/public/'));
 app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'pug');
@@ -32,7 +33,7 @@ app.use(session({
     resave: true,
     saveUninitialized: true,
     cookie:{
-        maxAge: 60000,
+        maxAge: 600000,
       }
 }));
 app.use(bodyParser.urlencoded({ extended: true }));

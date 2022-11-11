@@ -1,6 +1,31 @@
 extends head 
 
 block content
-    main.principalblock
-        h1 title
-        p Welcome to #{title}
+    main.principalblock.col-lg-10.col-lg-offset-1
+        h1 Bienvenido a nuestra web de recetas
+        input#busqueda.largo(type="search", name="busqueda")
+        .recipe-card
+            aside
+                img(src="img/red-velvet.jpg" alt="Red Velvet")
+                a.button(href="#") 
+                    span.glyphicon.glyphicon-play
+            article
+                h2 Red Velvet
+                h3 Postre
+                ul
+                    li
+                        span.glyphicon.glyphicon-users
+                        span 1
+                    li
+                        span.glyphicon.glyphicon-dashboard 
+                        span 45 min
+                    li
+                        span.glyphicon.glyphicon-flash
+                        span Dificultad
+                    li
+                        span.glyphicon.glyphicon-fire
+                        span 560
+                p Un pastel de terciopelo rojo —en inglés: Red velvet cake— es un pastel con un color rojo oscuro, rojo brillante o rojo-marrón.
+                p.ingredients
+                    span Ingredientes:&nbsp;
+                    |Leche, harina, huevos, vainilla, colorante, azucar, mantequilla.

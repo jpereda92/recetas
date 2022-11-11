@@ -2,12 +2,11 @@ extends ../head
 
 block content
  
- .cuadro
+ .cuadro.ancho-largo
     .header-card
       h1 Actualizar  categoría
-    each category in categoria
-      section.body
-        form(action="", method="post") 
-          input#nombre.largo(type=text, name="nombre", placeholder="Nombre la categoria" value=category.nombre)
-          textarea#decripcion.largo(name="descripcion", cols="30", rows="10", placeholder="Descripción la categoria")= category.descripcion
-          button.action(type="submit") Actualizar
+    section.body
+      form(action="", method="post") 
+        input#nombre.largo(type=text, name="nombre", placeholder="Nombre la categoria" value=categoria.nombre)
+        textarea#decripcion.largo(name="descripcion", cols="30", rows="10", placeholder="Descripción la categoria")= categoria.descripcion
+        button.action(type="submit") Actualizar

@@ -1,13 +1,67 @@
 extends ../head 
 
 block content
- 
- .cuadro
+  .cuadro.ancho-largo
     .header-card
-      h1 Actualizar  categoría
-    each category in categoria
-      section.body
-        form(action="", method="post") 
-          input#nombre.largo(type=text, name="nombre", placeholder="Nombre la categoria" value=category.nombre)
-          textarea#decripcion.largo(name="descripcion", cols="30", rows="10", placeholder="Descripción la categoria")= category.descripcion
-          button.action(type="submit") Actualizar
+      h1= title
+    section.body
+      form(action="", method="post"  enctype="multipart/form-data") 
+       
+        input#nombre.largo(type=text, name="nombre" placeholder="Nombre la categoria" value=listarecetas.nombre)
+        textarea#decripcion.largo(name="descripcion" placeholder="Descripción la categoria" cols="30" rows="10")= listarecetas.descripcion
+        
+        #imagenbox.input-group
+          label(for="image")
+            i.glyphicon.glyphicon-plus.addimagen
+            img#imagenes(name="filename"  type="text" width=150 height=150 src=listarecetas.image)    
+          input#image(type="file" name="image"  data-url="/img" accept="image/*")
+        .col-lg-4
+          input#time.largo(type="number", name="tiempo" placeholder="Tiempo" value=listarecetas.tiempo)
+        .col-lg-4
+          input#time.largo(type="number", name="calorias" placeholder="Calorias" value=listarecetas.calorias)
+        .col-lg-4
+          select.largo(name="dificultad")
+            each level in ["Fácil", "Normal", "Dificil"]
+              if ingrediente.dificultad===dificultad 
+                option(value=level)= level
+        select.largo(name="id_categoria")
+          each category in listacategoria
+            if category.id===listarecetas.id_categoria
+              option(value=category.id selected)= category.nombre
+            else
+              option(value=category.id)= category.nombre
+        .row 
+          h3.col-lg-12 Ingredientes
+          each ingrediente in listarecetas.ingredientes
+            .col-lg-4
+              input.largo(type=text, name="ingrediente" placeholder="Ingrediente" value=ingrediente.nombre)
+            .col-lg-2
+              select.largo(name="medida")
+                each medida in ["Al gusto", "Gramo", "Kilogramo", "Litro", "Pizca", "Pieza", "Taza", "Cucharada", "Cucharadita"]
+                  if ingrediente.unidad_medida===medida
+                    option(value=medida selected)= medida
+                  else
+                    option(value=medida)= medida
+            .col-lg-2
+              input.largo(type="number", name="cantidades" placeholder="Cantidad" value=ingrediente.cantidad)
+            .col-lg-2
+              button.boton-adicionar( type="button")
+                i.glyphicon.glyphicon-trash
+          .col-lg-2    
+            button.boton-adicionar( type="button")
+              i.glyphicon.glyphicon-plus
+        .row
+          h3.col-lg-12 Pasos
+          each paso in listarecetas.pasos
+            .col-lg-8
+              input.largo(type=text, name="paso" placeholder="Paso" value=paso.paso)
+              input(type="hidden", name="id_paso"  value=paso.id)
+            .col-lg-2
+              button.boton-adicionar( type="button")
+                i.glyphicon.glyphicon-trash
+          .col-lg-2
+            button.boton-adicionar( type="button")
+              i.glyphicon.glyphicon-plus
+        button.action(type="submit") Actualizar
+block scriptes
+   script(src='/js/script.js')

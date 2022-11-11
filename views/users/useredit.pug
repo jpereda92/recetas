@@ -2,7 +2,7 @@ extends ../head
 
 block content
  
- .cuadro
+ .cuadro.ancho-largo
     .header-card
       h1 Actualizar  usario
     each users in user
@@ -16,7 +16,7 @@ block content
           select.largo(name="rol" value=users.rol)
             each rol in ["Administrador", "Editor", "Usuario"]
               if rol===users.rol
-                option(value=rol  selected)= rol 
+                option(value=rol selected)= rol 
               else 
                 option(value=rol)= rol 
           button.action(type="submit") Actualizar

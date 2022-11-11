@@ -16,12 +16,17 @@ module.exports = (sequelize, DataTypes) => {
           target_key: 'id',
         }
       );
+      receta.hasMany(models.ingrediente, {foreignKey: 'id_receta'});
+      receta.hasMany(models.pasos, {foreignKey: 'id_receta'});
     }
   }
   receta.init({
     nombre: DataTypes.STRING,
     descripcion: DataTypes.STRING,
     image: DataTypes.STRING,
+    tiempo: DataTypes.INTEGER,
+    calorias: DataTypes.INTEGER,
+    dificultad: DataTypes.STRING,
     id_usuario: DataTypes.INTEGER,
     id_categoria: DataTypes.INTEGER
   }, {

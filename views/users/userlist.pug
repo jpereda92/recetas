@@ -2,7 +2,7 @@ extends ../head
 
 block content
     main
-        .cuadro 
+        .cuadro.ancho-largo 
             .header-card
                 h1 Listado de usuarios
                 
@@ -24,10 +24,12 @@ block content
                                 td= usuario.rol
                                 td.text-center  
                                     a.btn-action(href="/user/edit/" + usuario.id): i.glyphicon.glyphicon-pencil
-                                    a.btn-action(href="/user/delete/" + usuario.id): i.glyphicon.glyphicon-trash
+                                    a.btn-action(onclick="confirmaruser("+usuario.id+")"): i.glyphicon.glyphicon-trash
                         else
                             tr
                                 td
                                     p No existe ningun ususario
+block scriptes
+   script(src='/js/script.js')
           
                 

@@ -2,7 +2,7 @@ extends ../head
 
 block content
     main
-        .cuadro 
+        .cuadro.ancho-largo 
             .header-card
                 h1 Listado de #{title} 
             section.body
@@ -22,7 +22,8 @@ block content
                                 td= category.nombre
                                 td= category.descripcion
                                 td.text-center  
-                                    a.btn-action(href="/category/edit/" + category.id_categoria): i.glyphicon.glyphicon-pencil
-                                    a.btn-action(href="/category/delete/" + category.id_categoria): i.glyphicon.glyphicon-trash
-          
+                                    a.btn-action(href="/category/edit/" + category.id): i.glyphicon.glyphicon-pencil
+                                    a.btn-action(onclick="confirmarcategoria("+category.id+")"): i.glyphicon.glyphicon-trash
+block scriptes
+   script(src='/js/script.js')         
                 

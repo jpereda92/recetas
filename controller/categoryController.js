@@ -38,7 +38,7 @@ function edit(require, response){
     {
         const id = require.params.id;
         categoryModel.findByPk(id).then((category) => {
-                response.render('category/categoryedit',  { title: 'Actualizar una Categoría', categoria: category, nombre:  require.session.name, rol:  require.session.rol,});
+                response.render('category/categoryedit',  { title: 'Actualizar una Categoría', categoria: category, nombre: require.session.name, rol:  require.session.rol,});
             }
         ).catch((error)=>{
             response.redirect('/category');
@@ -52,7 +52,7 @@ function update(require, response) {
     if(require.session.rol =="Administrador" || require.session.rol =="Editor"){
         const id = require.params.id;
         const data = require.body;
-        categoryModel.update(
+        categoryModel.update(data,
             {
                 where:{id: id},
             }
@@ -63,14 +63,6 @@ function update(require, response) {
                 response.redirect('/category');
             }
         );
-        // require.getConnection((error, conection)=> {
-        //     conection.query('UPDATE categorias SET ? WHERE id_categoria =?', [data, id], (error, rows)=>{
-        //         if(error){
-        //             response.json(error); 
-        //         }
-        //         response.redirect('/category');
-        //     });
-        // });
     }
     else
         response.redirect('/');

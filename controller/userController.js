@@ -39,41 +39,28 @@ async function  store(require, response) {
         let datas = require.body; 
         const hashpassword = await bcryptjs.hash(data.password, 8);
         data.password = hashpassword; 
-        userModel.create(datas).then((data)=>{
-            response.redirect('/user');
-            })
-    // let data = require.body;
-    // const hashpassword = await bcryptjs.hash(data.password, 8);
-    // data.password = hashpassword;
-    // require.getConnection((error, conection)=> {
-    //     conection.query('INSERT INTO usuario SET?', [data], (error, rows)=>{
-    //         response.redirect('/user');
-    //     });
-    // });
-}else
-response.redirect('/');
+        userModel.create(datas).then(
+            (data)=>{
+                response.redirect('/user');
+            }
+        )
+}
+else
+    response.redirect('/');
 }
 function edit(require, response){
     if(require.session.rol =="Administrador"){
-    const id = require.params.id;
-    userModel.findByPk(id).then(user=>{
-        response.render('users/useredit',  { title: 'Actualizar un Usuario', user: user, nombre: require.session.name, rol:  require.session.rol,});   
-        }
-    ).catch((error)=>{
-        response.redirect('/user');
-        }
-    );
-    // require.getConnection((error, conection)=> {
-    //     conection.query('SELECT * FROM usuarios WHERE id =?', [id], (error, user)=>{
-    //         if(error){
-    //            response.json(error); 
-    //         }
-    //         response.render('users/useredit',  { title: 'Actualizar una Categoría', user: user, nombre:  require.session.name, rol:  require.session.rol,});
-            
-    //     });
-    // });
-    }else
-    response.redirect('/');
+        const id = require.params.id;
+        userModel.findByPk(id).then(user=>{
+            response.render('users/useredit',  { title: 'Actualizar un Usuario', user: user, nombre: require.session.name, rol:  require.session.rol,});   
+            }
+        ).catch((error)=>{
+            response.redirect('/user');
+            }
+        );
+    }
+    else
+        response.redirect('/');
 }
 function update(require, response) {
     if(require.session.rol =="Administrador")
@@ -131,35 +118,16 @@ async function loguearse(require, response) {
                     {
                         require.session.loggedin = true;
                         require.session.user = users.user;
+                        require.session.id_usuario = users.id;
                         require.session.rol = users.rol;
                         require.session.name = users.name;
-                        response.redirect('/receta');
+                        response.redirect('/');
                     }
                 }
             ).catch((error)=>{
                 response.redirect('/login');
                 }
             );
-        //     require.getConnection((error, conection)=> {
-        //     conection.query('SELECT * FROM usuarios WHERE user = ?', [user], async(error, users)=>{
-                
-        //         if(users.length == 0 || !(await bcryptjs.compare(pass, users[0].password))){
-
-        //         response.redirect('/login');
-        //         }
-        //         else{
-        //         require.session.loggedin = true;
-        //         require.session.user = users[0].user;
-        //         require.session.rol = users[0].rol;
-        //         require.session.name = users[0].name;
-
-        //         response.redirect('/receta');
-        //     }
-                
-        //     }
-        //     );
-        //  }
-        //  );
         }
         else
             response.redirect('/login');

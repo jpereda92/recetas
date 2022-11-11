@@ -1,18 +1,64 @@
 extends ../head 
 block content
-  .cuadro
+  .cuadro.ancho-largo
     .header-card
       h1= title
     section.body
       form(action="", method="post"  enctype="multipart/form-data") 
+       
         input#nombre.largo(type=text, name="nombre" placeholder="Nombre la categoria")
         textarea#decripcion.largo(name="descripcion" placeholder="Descripción la categoria" cols="30" rows="10")
-        .input-group
-          img#imagenes.col-lg-6(name="filename" src="" type="text")
-          input#image(type="file" name="image"  data-url="/public/img" accept="image/*" )
-        select.largo(name="categoria")
+        
+        #imagenbox.input-group
+          label(for="image")
+            i.glyphicon.glyphicon-plus.addimagen
+            img#imagenes(name="filename"  type="text" width=150 height=150)    
+          input#image(type="file" name="image"  data-url="/img" accept="image/*")
+        .col-lg-4
+          input#time.largo(type="number", name="tiempo" placeholder="Tiempo")
+        .col-lg-4
+          input#time.largo(type="number", name="calorias" placeholder="Calorias")
+        .col-lg-4
+          select.largo(name="dificultad")
+            each level in ["Fácil", "Normal", "Dificil"]
+              option(value=level)= level
+        select.largo(name="id_categoria")
           each category in listacategoria
             option(value=category.id)= category.nombre
+        h3 Ingredientes
+        .col-lg-4
+          input.largo(type=text, name="ingrediente" placeholder="Ingrediente")
+        .col-lg-2
+          select.largo(name="medida")
+            each medida in ["Al gusto", "Gramo", "Kilogramo", "Litro", "Pizca", "Pieza", "Taza", "Cucharada", "Cucharadita"]
+              option(value=medida)= medida
+        .col-lg-2
+          input.largo(type="number", name="cantidades" placeholder="Cantidad")
+        .col-lg-4
+          button.boton-adicionar( type="button")
+            i.glyphicon.glyphicon-trash
+          button.boton-adicionar( type="button")
+            i.glyphicon.glyphicon-plus
+        .col-lg-4
+          input.largo(type=text, name="ingrediente" placeholder="Ingrediente")
+        .col-lg-2
+          select.largo(name="medida")
+            each medida in ["Al gusto", "Gramo", "Kilogramo", "Litro", "Pizca", "Pieza", "Taza", "Cucharada", "Cucharadita"]
+              option(value=medida)= medida
+        .col-lg-2
+          input.largo(type="number", name="cantidades" placeholder="Cantidad")
+        .col-lg-4
+          button.boton-adicionar( type="button")
+            i.glyphicon.glyphicon-trash
+        h3 Pasos
+        .col-lg-8
+          input.largo(type=text, name="paso" placeholder="Paso")
+        .col-lg-2
+          button.boton-adicionar( type="button")
+            i.glyphicon.glyphicon-trash
+        .col-lg-2
+          button.boton-adicionar( type="button")
+            i.glyphicon.glyphicon-plus
         button.action(type="submit") Adicionar
 block scriptes
    script(src='/js/script.js')
